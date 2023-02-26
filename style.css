@@ -1,0 +1,94 @@
+/* define estilos globais */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* define estilos para o container de inputs */
+.containerSeletor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* define estilos para os selects */
+select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* define estilos para o botão Adicionar */
+.btnAdicionar {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* define estilos para o botão Remover Dia */
+.btnRemoverDia {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* define estilos para o botão Remover Funcionário */
+.btnRemoverFuncionario {
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* define estilos para a tabela de informações dos inputs */
+.containerTabelaMes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* define estilos para os containers de informações das divs */
+div[id^="dia"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+/* define estilos para os parágrafos de informações dos inputs */
+div[id^="dia"] p {
+  margin: 5px 0;
+  font-size: 16px;
+}
