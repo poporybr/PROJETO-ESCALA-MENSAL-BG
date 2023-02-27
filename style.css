@@ -92,3 +92,18 @@ div[id^="dia"] p {
   margin: 5px 0;
   font-size: 16px;
 }
+
+
+.funcionariosTrab{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: auto;
+}
+
+.tituloTrab{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
