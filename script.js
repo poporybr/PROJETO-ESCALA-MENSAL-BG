@@ -81,31 +81,26 @@ function removerDia() {
         diasTrabalhandoBreno --;
         document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
       }
-      break;
     case 'eduardo':
       if (funcao !== 'folga' && card.querySelector('#eduardo'+dia) !== null) {
         diasTrabalhandoEduardo --;
         document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo
       }
-      break;
     case 'larissa':
       if (funcao !== 'folga' && card.querySelector('#larissa'+dia) !== null) {
         diasTrabalhandoLarissa --;
         document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa
       }
-      break;
     case 'marcella':
       if (funcao !== 'folga' && card.querySelector('#marcella'+dia) !== null) {
         diasTrabalhandoMarcella --;
         document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella
       }
-      break;
     case 'paulo':
       if (funcao !== 'folga' && card.querySelector('#paulo'+dia) !== null) {
         diasTrabalhandoPaulo --;
         document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
       }
-      break;
     default:
       break;
   }
