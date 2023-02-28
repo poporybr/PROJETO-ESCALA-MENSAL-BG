@@ -107,3 +107,22 @@ div[id^="dia"] p {
   align-items: center;
   flex-direction: column;
 }
+
+.pTrabalho{
+  padding: 10px;
+}
+
+.diaAdicionado{
+  margin: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(74, 74, 232);
+  border: 2px solid black;
+}
+
+.pFinal{
+  font-weight: bold;
+
+}

@@ -50,12 +50,15 @@ function adicionar(){
 
     divExistente.appendChild(pFinal)
     pFinal.setAttribute('id', funcionario+dia)
+    pFinal.classList.add('pFinal')
   }else{
     const div = document.createElement('div')
     div.setAttribute('id', dia)
+    div.classList.add('diaAdicionado')
     container.appendChild(div)
 
     const pFinal = document.createElement('p')
+    pFinal.classList.add('pFinal')
     pFinal.textContent = `FUNCIONARIO: ${funcionario.toUpperCase()} / FUNÇÃO: ${funcao.toUpperCase()}`
 
     const paragrafoDia = document.createElement('p')
@@ -73,42 +76,51 @@ function removerDia() {
   const dia = document.getElementById('diaSelecionado').value;
   const card = document.getElementById(dia);
   const container = document.getElementById('containerTabelaMes');
+  const funcao = document.getElementById('funcao').value;
   
-  // Switch para verificar se cada funcionário está presente na div do dia removido e subtrair 1 do contador correspondente
-  switch (funcionario) {
-    case 'breno':
-      if (funcao !== 'folga' && card.querySelector('#breno'+dia) !== null) {
-        diasTrabalhandoBreno --;
-        document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+  // Array com os nomes dos funcionários
+  const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
+
+  // Loop para iterar sobre todos os funcionários
+  for (let i = 0; i < funcionarios.length; i++) {
+    const nome = funcionarios[i];
+
+    // Verifica se o funcionário está presente no dia selecionado
+    if (funcao !== 'folga' && card.querySelector('#'+nome+dia) !== null) {
+
+      // Subtrai 1 do contador correspondente
+      switch (nome) {
+        case 'breno':
+          diasTrabalhandoBreno --;
+          document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+          break;
+        case 'eduardo':
+          diasTrabalhandoEduardo --;
+          document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+          break;
+        case 'larissa':
+          diasTrabalhandoLarissa --;
+          document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+          break;
+        case 'marcella':
+          diasTrabalhandoMarcella --;
+          document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+          break;
+        case 'paulo':
+          diasTrabalhandoPaulo --;
+          document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
+          break;
+        default:
+          break;
       }
-    case 'eduardo':
-      if (funcao !== 'folga' && card.querySelector('#eduardo'+dia) !== null) {
-        diasTrabalhandoEduardo --;
-        document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo
-      }
-    case 'larissa':
-      if (funcao !== 'folga' && card.querySelector('#larissa'+dia) !== null) {
-        diasTrabalhandoLarissa --;
-        document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa
-      }
-    case 'marcella':
-      if (funcao !== 'folga' && card.querySelector('#marcella'+dia) !== null) {
-        diasTrabalhandoMarcella --;
-        document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella
-      }
-    case 'paulo':
-      if (funcao !== 'folga' && card.querySelector('#paulo'+dia) !== null) {
-        diasTrabalhandoPaulo --;
-        document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
-      }
-    default:
-      break;
+    }
   }
   
   if(card){
     container.removeChild(card)
   }
 }
+
 // Função remover elemento selecionando o funcionario e o dia
 function removerFuncionario() {
   const funcionario = document.getElementById('funcionarios').value
@@ -143,3 +155,11 @@ function removerFuncionario() {
     }
   }
 }
+
+document.getElementById('download-pdf-btn').addEventListener('click', function () {
+  var doc = new jsPDF();
+  var content = document.documentElement.innerHTML;
+  doc.fromHTML(content, 15, 15, { 'width': 170 });
+  doc.save('arquivo.pdf');
+});
+
