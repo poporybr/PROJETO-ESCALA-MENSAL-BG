@@ -46,7 +46,7 @@ function adicionar(){
   const divExistente = document.getElementById(dia)
   if (divExistente !== null){
     const pFinal = document.createElement('p')
-    pFinal.textContent = `FUNCIONARIO: ${funcionario.toUpperCase()} / FUNÇÃO: ${funcao.toUpperCase()}`
+    pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}`
 
     divExistente.appendChild(pFinal)
     pFinal.setAttribute('id', funcionario+dia)
@@ -59,7 +59,7 @@ function adicionar(){
 
     const pFinal = document.createElement('p')
     pFinal.classList.add('pFinal')
-    pFinal.textContent = `FUNCIONARIO: ${funcionario.toUpperCase()} / FUNÇÃO: ${funcao.toUpperCase()}`
+    pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}`
 
     const paragrafoDia = document.createElement('p')
     paragrafoDia.textContent = `DIA: ${dia.toUpperCase()}`
@@ -72,7 +72,6 @@ function adicionar(){
 
 // Função remover container do card dentro do container do mes, selecionando apenas o dia
 function removerDia() {
-  const funcionario = document.getElementById('funcionarios').value
   const dia = document.getElementById('diaSelecionado').value;
   const card = document.getElementById(dia);
   const container = document.getElementById('containerTabelaMes');
@@ -158,13 +157,23 @@ function removerFuncionario() {
 
 
 document.getElementById("download-pdf-btn").addEventListener("click", function() {
+  const loja = document.getElementById('lojaSelected').value
   const doc = new jsPDF();
-  const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`
+  // const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA: ${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`;
   const conteudo = document.getElementById("containerTabelaMes");
-  doc.text(diasTrabalhando, 20, 10);
-  doc.fromHTML(conteudo, 20, 10);
+  
+  // adiciona o título e configura a fonte
+  doc.setFontSize(16);
+  doc.text(`ESCALA MENSAL LOJA ${loja}`, 105, 20, {align: "center"});
+  
+  // configura a fonte para o tamanho do conteúdo
+  doc.setFontSize(12);
+  
+  // doc.text(diasTrabalhando, 20, 40, {align: "center"});
+  doc.fromHTML(conteudo, 20, 50, {align: "center"});
   doc.save("Escala.pdf");
 });
+
 
 
 

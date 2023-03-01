@@ -13,6 +13,16 @@
 </head>
 
 <body>
+  <h1 class="titleEscala">ESCALA MENSAL</h1>
+
+  <div class="seletorLoja">
+    <label for="loja"></label>
+    <select name="loja" id="lojaSelected">
+      <option selected>Selecione uma Loja</option>
+      <option value="45 (Via Parque Shopping)">45 (Via Parque Shopping)</option>
+      <option value="48 (Americas Shopping)">48 (Americas Shopping)</option>
+    </select>
+  </div>
   <!-- Container de inputs -->
   <div id="containerSeletor" class="containerSeletor">
 
@@ -77,12 +87,12 @@
       <select name="funcao" id="funcao">
         <option selected>Selecione uma função</option>
         <option value="abertura">Abertura</option>
-        <option value="intermedio">Intermediário</option>
+        <option value="intermediario">Intermediário</option>
         <option value="fechamento">Fechamento</option>
         <option value="folga">Folga</option>
       </select>
     </div>
-
+  </div>
     <br>
 
     <!-- Btn Adicionar/Remover -->
@@ -103,12 +113,11 @@
         <p class="pTrabalho">MARCELLA: <span id="trabMarcella"></span></p>
         <p class="pTrabalho">PAULO: <span id="trabPaulo"></span></p>
       </div>
-    </div>
     <!-- Container para inserir informações dos inputs -->
     <div class="containerTabelaMes" id="containerTabelaMes">
     </div>
   </div>
-  <button id="download-pdf-btn" onclick="gerarPdf()">Download PDF</button>
+  <div class="btn-donwload"><button id="download-pdf-btn" onclick="gerarPdf()" class="donwloadPdf">Download PDF</button></div>
 </body>
 
 </html>
