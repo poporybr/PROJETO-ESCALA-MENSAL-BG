@@ -156,10 +156,15 @@ function removerFuncionario() {
   }
 }
 
-document.getElementById('download-pdf-btn').addEventListener('click', function () {
-  var doc = new jsPDF();
-  var content = document.documentElement.innerHTML;
-  doc.fromHTML(content, 15, 15, { 'width': 170 });
-  doc.save('arquivo.pdf');
+
+document.getElementById("download-pdf-btn").addEventListener("click", function() {
+  const doc = new jsPDF();
+  const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`
+  const conteudo = document.getElementById("containerTabelaMes");
+  doc.text(diasTrabalhando, 20, 10);
+  doc.fromHTML(conteudo, 20, 10);
+  doc.save("Escala.pdf");
 });
+
+
 
