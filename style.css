@@ -183,3 +183,21 @@ div[id^="dia"] p {
 .donwloadPdf:hover{
   background-color: #3e8e41;
 }
+
+/* Estilos para dispositivos com largura menor que 600px */
+@media (max-width: 600px) {
+  .containerSeletor {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .btnsSubmit {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .funcionariosTrab{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
