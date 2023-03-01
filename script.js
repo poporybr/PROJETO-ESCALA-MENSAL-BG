@@ -171,7 +171,11 @@ document.getElementById("download-pdf-btn").addEventListener("click", function()
   
   // doc.text(diasTrabalhando, 20, 40, {align: "center"});
   doc.fromHTML(conteudo, 20, 50, {align: "center"});
-  doc.save("Escala.pdf");
+  if(loja === 48){
+    doc.save("Escala48.pdf");
+  }else{
+    doc.save("Escala45.pdf")
+  }
 });
 
 
