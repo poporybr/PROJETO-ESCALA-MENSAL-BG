@@ -155,6 +155,29 @@ function removerFuncionario() {
   }
 }
 
+function copiarUltimaDiv() {
+const ultimoDia = document.querySelector('#containerTabelaMes .diaAdicionado:last-child');
+
+if (ultimoDia !== null) {
+  const dia = document.getElementById('diaSelecionado').value;
+  const novoDia = ultimoDia.cloneNode(true);
+  novoDia.setAttribute('id', dia);
+  novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()}`;
+  const paragrafos = novoDia.querySelectorAll('.pFinal');
+  paragrafos.forEach((p) => {
+    const idOriginal = p.getAttribute('id');
+    p.setAttribute('id', idOriginal.replace(/\d+$/, dia));
+  });
+  const container = document.getElementById('containerTabelaMes');
+  const divExistente = document.getElementById(dia);
+  if (divExistente !== null) {
+    divExistente.parentNode.replaceChild(novoDia, divExistente);
+  } else {
+    container.appendChild(novoDia);
+  }
+}
+}
+
 
 document.getElementById("download-pdf-btn").addEventListener("click", function() {
   const loja = document.getElementById('lojaSelected').value
@@ -171,7 +194,7 @@ document.getElementById("download-pdf-btn").addEventListener("click", function()
   
   // doc.text(diasTrabalhando, 20, 40, {align: "center"});
   doc.fromHTML(conteudo, 20, 50, {align: "center"});
-  if(loja === 48){
+  if(loja === '48'){
     doc.save("Escala48.pdf");
   }else{
     doc.save("Escala45.pdf")
