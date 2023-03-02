@@ -16,6 +16,18 @@ body {
   margin-top: 20px;
 }
 
+.outrosFuncao{
+  background-color: #F2F2F2;
+  border: 1px solid #CCCCCC;
+  color: #333333;
+  font-size: 16px;
+  padding: 8px;
+  width: 100px;
+  border-radius: 10px;
+  height: 30px;
+  display: none;
+}
+
 /* define estilos para o container de inputs */
 .containerSeletor {
   margin-top: 30px;

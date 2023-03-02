@@ -200,7 +200,3 @@ document.getElementById("download-pdf-btn").addEventListener("click", function()
     doc.save("Escala45.pdf")
   }
 });
-
-
-
-
