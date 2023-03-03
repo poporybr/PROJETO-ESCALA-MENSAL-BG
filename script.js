@@ -244,17 +244,18 @@ function copiarUltimaDiv() {
 document.getElementById("download-pdf-btn").addEventListener("click", function() {
   const loja = document.getElementById('lojaSelected').value
   const doc = new jsPDF();
-  // const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA: ${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`;
+  const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA: ${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`;
   const conteudo = document.getElementById("containerTabelaMes");
   
   // adiciona o título e configura a fonte
   doc.setFontSize(16);
   doc.text(`ESCALA MENSAL LOJA ${loja}`, 105, 20, {align: "center"});
+
+  doc.setFontSize(14);
+  doc.fromHTML(diasTrabalhando, 20, 40, {align: "center"});
   
   // configura a fonte para o tamanho do conteúdo
   doc.setFontSize(12);
-  
-  // doc.text(diasTrabalhando, 20, 40, {align: "center"});
   doc.fromHTML(conteudo, 20, 50, {align: "center"});
   if(loja === '48'){
     doc.save("Escala48.pdf");
