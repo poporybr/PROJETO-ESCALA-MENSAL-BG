@@ -1,9 +1,11 @@
+//Variaveis para o contador de dias trabalhados
 var diasTrabalhandoBreno = 0
 var diasTrabalhandoEduardo = 0
 var diasTrabalhandoLarissa = 0
 var diasTrabalhandoMarcella = 0
 var diasTrabalhandoPaulo = 0
 
+//Print em tela dos dias trabalhados
 document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
 document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
 document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
@@ -12,9 +14,14 @@ document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
 
 // Função para criar uma div dinamicamente e adicionar o funcionario dentro dessa div, selecionando funcionario, dia e função e caso essa div ja exista ele sera incluido dentro da div existente
 function adicionar(){
+  const loja = document.getElementById('lojaSelected')
   const funcionario = document.getElementById('funcionarios').value
   const dia = document.getElementById('diaSelecionado').value
   const funcao = document.getElementById('funcao').value
+  if(funcionario == 'default' || dia == 'default' || funcao == 'default' || loja == 'default'){
+    alert('Todas as caixas devem estar preenchidas para a criação das tabelas!')
+    return
+  }
 
   switch(funcionario){
     case 'breno':
@@ -77,6 +84,11 @@ function removerDia() {
   const container = document.getElementById('containerTabelaMes');
   const funcao = document.getElementById('funcao').value;
   
+  //Parar a função caso on inputs necessarios nao teham sido preenchidos
+  if(dia == 'default'){
+    alert('A opção dia precisa estar preenchida e existir para ser removida.')
+    return
+  }
   // Array com os nomes dos funcionários
   const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
 
@@ -124,6 +136,9 @@ function removerDia() {
 function removerFuncionario() {
   const funcionario = document.getElementById('funcionarios').value
   const dia = document.getElementById('diaSelecionado').value
+  if(dia == 'default' || funcionario == 'default'){
+    alert('As opções "Funcionario" e "Dia", precisam estar preenchidas e existir para que sejam removidas.')
+  }
   const paragrafo = document.getElementById(funcionario + dia)
   const funcao = document.getElementById('funcao').value
   if (paragrafo) {
@@ -155,29 +170,76 @@ function removerFuncionario() {
   }
 }
 
+//Função para copiar a ultima Div criada dinamicamente e criar uma div identica após ela mudando apenas o dia para o dia selecionado pelo usuario
 function copiarUltimaDiv() {
-const ultimoDia = document.querySelector('#containerTabelaMes .diaAdicionado:last-child');
+  const ultimoDia = document.querySelector('#containerTabelaMes .diaAdicionado:last-child');
 
-if (ultimoDia !== null) {
-  const dia = document.getElementById('diaSelecionado').value;
-  const novoDia = ultimoDia.cloneNode(true);
-  novoDia.setAttribute('id', dia);
-  novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()}`;
-  const paragrafos = novoDia.querySelectorAll('.pFinal');
-  paragrafos.forEach((p) => {
-    const idOriginal = p.getAttribute('id');
-    p.setAttribute('id', idOriginal.replace(/\d+$/, dia));
-  });
-  const container = document.getElementById('containerTabelaMes');
-  const divExistente = document.getElementById(dia);
-  if (divExistente !== null) {
-    divExistente.parentNode.replaceChild(novoDia, divExistente);
-  } else {
-    container.appendChild(novoDia);
+  if (ultimoDia !== null) {
+    const dia = document.getElementById('diaSelecionado').value;
+    if (document.getElementById(dia) !== null) {
+      alert(`O dia ${dia} já foi adicionado. Por favor, selecione um dia diferente.`);
+      return;
+    }
+    const novoDia = ultimoDia.cloneNode(true);
+    novoDia.setAttribute('id', dia);
+    novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()}`;
+    const paragrafos = novoDia.querySelectorAll('.pFinal');
+    paragrafos.forEach((p) => {
+      const idOriginal = p.getAttribute('id');
+      p.setAttribute('id', idOriginal.replace(/\d+$/, dia));
+    });
+    const container = document.getElementById('containerTabelaMes');
+    const divExistente = document.getElementById(dia);
+    if (divExistente !== null) {
+      divExistente.parentNode.replaceChild(novoDia, divExistente);
+    } else {
+      container.appendChild(novoDia);
+    }
+
+    // Array com os nomes dos funcionários
+    const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
+
+    // Loop para iterar sobre todos os funcionários
+    for (let i = 0; i < funcionarios.length; i++) {
+      const nome = funcionarios[i];
+      const cardAtual = document.getElementById(nome + dia);
+      
+      // Verifica se o funcionário está presente no card clonado
+      if (cardAtual !== null) {
+
+        // Incrementa o contador de dias trabalhados do funcionário
+        switch (nome) {
+          case 'breno':
+            diasTrabalhandoBreno ++;
+            document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+            break;
+          case 'eduardo':
+            diasTrabalhandoEduardo ++;
+            document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+            break;
+          case 'larissa':
+            diasTrabalhandoLarissa ++;
+            document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+            break;
+          case 'marcella':
+            diasTrabalhandoMarcella ++;
+            document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+            break;
+          case 'paulo':
+            diasTrabalhandoPaulo ++;
+            document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
+            break;
+          default:
+            break;
+        }
+      }
+    }
   }
 }
-}
 
+
+
+//Função para ao clicar no botao baixar um pdf com a escala completa 
 
 document.getElementById("download-pdf-btn").addEventListener("click", function() {
   const loja = document.getElementById('lojaSelected').value
