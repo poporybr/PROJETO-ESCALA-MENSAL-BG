@@ -23,6 +23,32 @@ function adicionar(){
     return
   }
 
+  // Verifica se o funcionário trabalhou nos últimos 6 dias
+  // const ultimosDias = document.querySelectorAll('.diaAdicionado')
+  // let contadorDiasFunc = 0
+  // for (let i = 0; i < ultimosDias.length; i++) {
+  //   const divDia = ultimosDias[i]
+  //   const funcSelecionado = divDia.querySelector(`#${funcionario+divDia.id}`)
+  //   if (funcSelecionado !== null) {
+  //     if (funcSelecionado.value === 'folga') {
+  //       contadorDiasFunc = 0 // reinicializa o contador
+  //     } else {
+  //       contadorDiasFunc++
+  //       if (contadorDiasFunc === 6) {
+  //         const funcao = document.getElementById('funcao').value
+  //         if (funcao !== 'folga') {
+  //           alert(`O funcionário ${funcionario.toUpperCase()} trabalhou nos últimos 6 dias, então só é possível atribuir a função 'FOLGA'.`)
+  //           return
+  //         }
+  //       }
+  //     }
+  //   }
+  //   if (i === ultimosDias.length - 1 && funcSelecionado !== null && funcSelecionado.value === 'folga') {
+  //     contadorDiasFunc = 0 // reinicializa o contador
+  //   }
+  // }
+  
+
   switch(funcionario){
     case 'breno':
       if(funcao !== 'folga') diasTrabalhandoBreno ++
@@ -237,10 +263,7 @@ function copiarUltimaDiv() {
   }
 }
 
-
-
 //Função para ao clicar no botao baixar um pdf com a escala completa 
-
 document.getElementById("download-pdf-btn").addEventListener("click", function() {
   const loja = document.getElementById('lojaSelected').value
   const doc = new jsPDF();
@@ -257,9 +280,5 @@ document.getElementById("download-pdf-btn").addEventListener("click", function()
   // configura a fonte para o tamanho do conteúdo
   doc.setFontSize(12);
   doc.fromHTML(conteudo, 20, 50, {align: "center"});
-  if(loja === '48'){
-    doc.save("Escala48.pdf");
-  }else{
-    doc.save("Escala45.pdf")
-  }
+  doc.save("escala.pdf")
 });
