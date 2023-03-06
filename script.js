@@ -25,34 +25,34 @@ function adicionar(){
 
   // Verifica se o funcionário trabalhou nos últimos 6 dias
   // Se sim, impossibilita ele de trabalhar novamente e alerta um erro
-  const ultimosDias = document.querySelectorAll('.diaAdicionado')
-  let contadorDiasFunc = 0
+  // const ultimosDias = document.querySelectorAll('.diaAdicionado')
+  // let contadorDiasFunc = 0
 
   // Seleciona apenas os últimos 6 dias
-  const ultimosSeisDias = Array.prototype.slice.call(ultimosDias, -6)
-  if (ultimosSeisDias.length > 0) {
-    const ultimaDiv = ultimosDias[ultimosDias.length - 1]
-    const funcao = ultimaDiv.querySelector('.pFinal').value
-    console.log(funcao.value)
-    if (funcao === 'folga') {
-      contadorDiasFunc = 0
-    }
-  }  
+  // const ultimosSeisDias = Array.prototype.slice.call(ultimosDias, -6)
+  // if (ultimosSeisDias.length > 0) {
+  //   const ultimaDiv = ultimosDias[ultimosDias.length - 1]
+  //   const funcao = ultimaDiv.querySelector('.pFinal').value
+  //   console.log(funcao.value)
+  //   if (funcao === 'folga') {
+  //     contadorDiasFunc = 0
+  //   }
+  // }  
 
-  for (let i = 0; i < ultimosSeisDias.length; i++) {
-    const divDia = ultimosSeisDias[i]
-    const funcionarioS = divDia.querySelector(`#${funcionario+divDia.id}`)
-    if (funcionarioS !== null) {
-      contadorDiasFunc++
-      if (contadorDiasFunc === 6) {
-        const funcao = document.getElementById('funcao').value
-        if (funcao !== 'folga') {
-          alert(`O funcionário ${funcionario.toUpperCase()} trabalhou nos últimos 6 dias, então só é possível atribuir a função 'FOLGA'.`)
-          return
-        }
-      }
-    }
-  }
+  // for (let i = 0; i < ultimosSeisDias.length; i++) {
+  //   const divDia = ultimosSeisDias[i]
+  //   const funcionarioS = divDia.querySelector(`#${funcionario+divDia.id}`)
+  //   if (funcionarioS !== null) {
+  //     contadorDiasFunc++
+  //     if (contadorDiasFunc === 6) {
+  //       const funcao = document.getElementById('funcao').value
+  //       if (funcao !== 'folga') {
+  //         alert(`O funcionário ${funcionario.toUpperCase()} trabalhou nos últimos 6 dias, então só é possível atribuir a função 'FOLGA'.`)
+  //         return
+  //       }
+  //     }
+  //   }
+  // }
   
   switch(funcionario){
     case 'breno':
