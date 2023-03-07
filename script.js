@@ -18,6 +18,8 @@ function adicionar(){
   const funcionario = document.getElementById('funcionarios').value
   const dia = document.getElementById('diaSelecionado').value
   const funcao = document.getElementById('funcao').value
+
+  //Tratamento de erro, para caso o usuario nao preencha todos os input.
   if(funcionario == 'default' || dia == 'default' || funcao == 'default' || loja == 'default'){
     alert('Todas as caixas devem estar preenchidas para a criação das tabelas!')
     return
@@ -54,6 +56,7 @@ function adicionar(){
   //   }
   // }
   
+  //switch para verificar qual funcionario esta sendo adicionado e somar +1 dia no contador
   switch(funcionario){
     case 'breno':
       if(funcao !== 'folga') diasTrabalhandoBreno ++
@@ -79,25 +82,29 @@ function adicionar(){
       break
   }
 
-
+  //Variaveis para adicionar uma div de dia
   const container = document.getElementById('containerTabelaMes')
   const divExistente = document.getElementById(dia)
+  
+  //se a div ja exitir o funcionario é somente adicionado
   if (divExistente !== null){
-    const pFinal = document.createElement('p')
-    pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}`
+    const pFinal = document.createElement('p') //cria o paragrafo que vai receber os parametros
+    pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}` //adiciona texto ao paragrafo criado
 
-    divExistente.appendChild(pFinal)
-    pFinal.setAttribute('id', funcionario+dia)
-    pFinal.classList.add('pFinal')
+    divExistente.appendChild(pFinal) //append do paragrafo dentro da div
+    pFinal.setAttribute('id', funcionario+dia) //set id
+    pFinal.classList.add('pFinal') //set class
+
+  //senao cria a div
   }else{
-    const div = document.createElement('div')
-    div.setAttribute('id', dia)
-    div.classList.add('diaAdicionado')
-    container.appendChild(div)
+    const div = document.createElement('div') //cria o elemento dv
+    div.setAttribute('id', dia) //set o id
+    div.classList.add('diaAdicionado') //set class
+    container.appendChild(div) //append no container
 
-    const pFinal = document.createElement('p')
-    pFinal.classList.add('pFinal')
-    pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}`
+    const pFinal = document.createElement('p') //cria o paragrafo
+    pFinal.classList.add('pFinal') //set class
+    pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}` //adiciona txt ao paragrafo
 
     const paragrafoDia = document.createElement('p')
     paragrafoDia.textContent = `DIA: ${dia.toUpperCase()}`
