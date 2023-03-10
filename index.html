@@ -13,16 +13,6 @@
 </head>
 
 <body>
-  <h1 class="titleEscala">ESCALA MENSAL</h1>
-
-  <div class="seletorLoja">
-    <label for="loja"></label>
-    <select name="loja" id="lojaSelected">
-      <option value="default" selected>Selecione uma Loja</option>
-      <option value="45">45 (Via Parque Shopping)</option>
-      <option value="48">48 (Americas Shopping)</option>
-    </select>
-  </div>
   <!-- Container de inputs -->
   <div id="containerSeletor" class="containerSeletor">
 
@@ -30,7 +20,7 @@
     <div class="funcionarioSelected">
       <label for="funcionarios"></label>
       <select name="funcionarios" id="funcionarios">
-        <option value="default" selected>Selecione um funcionario</option>
+        <option selected>Selecione um funcionario</option>
         <option value="breno">Breno</option>
         <option value="eduardo">Eduardo</option>
         <option value="larissa">Larissa</option>
@@ -45,7 +35,7 @@
     <div class="diaSelected">
       <label for="dia"></label>
       <select name="dia" id="diaSelecionado">
-        <option value="default" selected>Selecione um dia</option>
+        <option selected>Selecione um dia</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -85,45 +75,40 @@
     <!-- Container input função -->
     <div class="funcaoSelected">
       <select name="funcao" id="funcao">
-        <option value="default" selected>Selecione uma função</option>
+        <option selected>Selecione uma função</option>
         <option value="abertura">Abertura</option>
-        <option value="intermediario">Intermediário</option>
+        <option value="intermedio">Intermediário</option>
         <option value="fechamento">Fechamento</option>
         <option value="folga">Folga</option>
-        <!-- <option value="outros">Outros</option> -->
       </select>
     </div>
 
-    <!-- <input type="text" id="outrosFuncao" placeholder="Qual:" class="outrosFuncao"> -->
+    <br>
 
-  </div>
-  <br>
+    <!-- Btn Adicionar/Remover -->
+    <div class="btnsSubmit">
+      <button class="btnAdicionar" onclick="adicionar()">Adicionar</button>
+      <button class="btnRemoverDia" onclick="removerDia()">Remover Dia</button>
+      <button class="btnRemoverFuncionario" onclick="removerFuncionario()">Remover Elemento</button>
+    </div>
 
-  <!-- Btn Adicionar/Remover -->
-  <div class="btnsSubmit">
-    <button class="btnAdicionar" onclick="adicionar()">Adicionar</button>
-    <button class="btnRemoverDia" onclick="removerDia()">Remover Dia</button>
-    <button class="btnRemoverFuncionario" onclick="removerFuncionario()">Remover Elemento</button>
-    <button class="btnCopiar" onclick="copiarUltimaDiv()">Copiar Ultimo Dia</button>
-  </div>
+    <br>
 
-  <br>
-
-  <div class="tituloTrab">
-    <h4>Dias trabalhados:</h4>
-    <div class="funcionariosTrab">
-      <p class="pTrabalho">BRENO: <span id="trabBreno"></span></p>
-      <p class="pTrabalho">EDUARDO: <span id="trabEduardo"></span></p>
-      <p class="pTrabalho">LARISSA: <span id="trabLarissa"></span></p>
-      <p class="pTrabalho">MARCELLA: <span id="trabMarcella"></span></p>
-      <p class="pTrabalho">PAULO: <span id="trabPaulo"></span></p>
+    <div class="tituloTrab">
+      <h4>Dias trabalhados:</h4>
+      <div class="funcionariosTrab">
+        <p class="pTrabalho">BRENO: <span id="trabBreno"></span></p>
+        <p class="pTrabalho">EDUARDO: <span id="trabEduardo"></span></p>
+        <p class="pTrabalho">LARISSA: <span id="trabLarissa"></span></p>
+        <p class="pTrabalho">MARCELLA: <span id="trabMarcella"></span></p>
+        <p class="pTrabalho">PAULO: <span id="trabPaulo"></span></p>
+      </div>
     </div>
     <!-- Container para inserir informações dos inputs -->
     <div class="containerTabelaMes" id="containerTabelaMes">
     </div>
   </div>
-  <div class="btn-donwload"><button id="download-pdf-btn" onclick="gerarPdf()" class="donwloadPdf">Download PDF</button>
-  </div>
+  <button id="download-pdf-btn" onclick="gerarPdf()">Download PDF</button>
 </body>
 
 </html>
