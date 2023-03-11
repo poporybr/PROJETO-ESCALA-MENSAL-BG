@@ -13,14 +13,15 @@
 </head>
 
 <body>
+
+  <h1 class="titleEscala">Escala Mensal</h1>
   <!-- Container de inputs -->
   <div id="containerSeletor" class="containerSeletor">
-
     <!-- Container input funcionarios -->
     <div class="funcionarioSelected">
       <label for="funcionarios"></label>
       <select name="funcionarios" id="funcionarios">
-        <option selected>Selecione um funcionario</option>
+        <option selected value="default">Selecione um funcionario</option>
         <option value="breno">Breno</option>
         <option value="eduardo">Eduardo</option>
         <option value="larissa">Larissa</option>
@@ -34,8 +35,8 @@
     <!-- Container input dia -->
     <div class="diaSelected">
       <label for="dia"></label>
-      <select name="dia" id="diaSelecionado">
-        <option selected>Selecione um dia</option>
+      <select name="dia" id="diaSelecionado" class="seletorDia">
+        <option value="default" selected>Selecione um dia</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -68,6 +69,12 @@
         <option value="30">30</option>
         <option value="31">31</option>
       </select>
+      <div class="diasExtras">
+        <label for="domingo">Domingo: </label>
+        <input type="checkbox" name="domingo" id="checkDomingo">
+        <label for="feriado">Feriado: </label>
+        <input type="checkbox" name="feriado" id="checkFeriado">
+      </div>
     </div>
 
     <br>
@@ -75,11 +82,12 @@
     <!-- Container input função -->
     <div class="funcaoSelected">
       <select name="funcao" id="funcao">
-        <option selected>Selecione uma função</option>
+        <option selected value="default">Selecione uma função</option>
         <option value="abertura">Abertura</option>
         <option value="intermedio">Intermediário</option>
         <option value="fechamento">Fechamento</option>
         <option value="folga">Folga</option>
+        <option value="gerente">Gerente</option>
       </select>
     </div>
 
@@ -90,6 +98,7 @@
       <button class="btnAdicionar" onclick="adicionar()">Adicionar</button>
       <button class="btnRemoverDia" onclick="removerDia()">Remover Dia</button>
       <button class="btnRemoverFuncionario" onclick="removerFuncionario()">Remover Elemento</button>
+      <button class="btnCopiar" onclick="copiarUltimaDiv()">Copiar Ultimo Dia</button>
     </div>
 
     <br>
@@ -108,7 +117,7 @@
     <div class="containerTabelaMes" id="containerTabelaMes">
     </div>
   </div>
-  <button id="download-pdf-btn" onclick="gerarPdf()">Download PDF</button>
+  <button id="download-pdf-btn" onclick="gerarPdf()" class="donwloadPdf">Download PDF</button>
 </body>
 
 </html>
