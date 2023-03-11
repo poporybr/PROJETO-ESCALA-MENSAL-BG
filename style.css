@@ -1,4 +1,4 @@
-/* define estilos globais */
+define estilos globais
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,18 +16,6 @@ body {
   margin-top: 20px;
 }
 
-.outrosFuncao{
-  background-color: #F2F2F2;
-  border: 1px solid #CCCCCC;
-  color: #333333;
-  font-size: 16px;
-  padding: 8px;
-  width: 100px;
-  border-radius: 10px;
-  height: 30px;
-  display: none;
-}
-
 /* define estilos para o container de inputs */
 .containerSeletor {
   margin-top: 30px;
@@ -35,13 +23,6 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-}
-
-.seletorLoja{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10px;
 }
 
 /* define estilos para os selects */
@@ -190,12 +171,6 @@ div[id^="dia"] p {
 .pFinal{
   font-weight: bold;
 
-}
-
-.btn-donwload{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
 }
 
 .donwloadPdf{
