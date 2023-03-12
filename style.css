@@ -1,208 +1,147 @@
-define estilos globais
+
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: 0 ;
   padding: 0;
+  font-family: Roboto,sans-serif;
 }
+
 
 body {
   font-family: sans-serif;
-  background-color: rgb(236, 236, 235);
+  background-color: #FFFFFF;
 }
 
-.titleEscala{
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-/* define estilos para o container de inputs */
-.containerSeletor {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: row;
+header{
   align-items: center;
-  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  width: 100%;
+  height: 17vh;
+  
+
+}
+header img{
+  max-width: 100%;
+  margin-left: 4rem;
 }
 
-/* define estilos para os selects */
-select {
+.containerPai{
+  margin: 3rem  5rem 3rem 5rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+  padding: 15px;
+  border-top: #00372E 1px solid ;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  
+}
+ .containerPai h1{
+  text-align: center;
+  color:#00372E;
+  
+}
+.containerSeletor{
+  text-align: center;
+}
+.funcionarioSelected{
+  margin: 0.5rem;
+  width: auto;
+  text-align: center;
+}
+select, 
+option, 
+button{
+  width: auto;
+  height: 2rem;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: grey;
+  
+}
+.diaSelected, .funcaoSelected, .btnsSubmit, .buttondownload{
+   text-align: center;
+}
+.diasExtras{
   padding: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-
-.btnsSubmit{
-  display: flex;
+  text-align: center;
   justify-content: center;
-  align-items: center;
 }
-/* define estilos para o botão Adicionar */
-.btnAdicionar {
-  background-color: #4CAF50;
+button{
   border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
+  padding: 5px;
+  color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  font-weight: bold;
+}.btnAdicionar, .btnRemoverDia, .btnRemoverFuncionario, .btnCopiar{
+  background-color:#0a832a;
+  
 }
 
-.btnAdicionar:hover{
-  background-color: #3e8e41;
-}
-
-/* define estilos para o botão Remover Dia */
-.btnRemoverDia {
-  background-color: #f44336; 
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
+.donwloadPdf, .btnAdicionar:hover{
+  background-color:#4CAF50;
 }
 .btnRemoverDia:hover{
-  background-color: #dd2c1f;
+  background-color: #b42b2b;
 }
-
-.btnCopiar{
-  background-color: #6a59ff;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.btnCopiar:hover{
-  background-color: #4c39fc;
-}
-
-/* define estilos para o botão Remover Funcionário */
-.btnRemoverFuncionario {
-  background-color: #ff9800;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
 .btnRemoverFuncionario:hover{
-  background-color: #dd8500;
+  background-color: #d6d334;
 }
-
-/* define estilos para a tabela de informações dos inputs */
-.containerTabelaMes {
+.btnCopiar:hover{
+  background-color: rgb(52, 52, 160);
+}
+.tituloTrab{
+  text-align: center;
+}
+h4{
+  margin: 1rem;
+  color:#A3A3A3;
+}
+.funcionariosTrab{
+  display: flex;
+ justify-content: center;
+}
+.funcionariosTrab p{
+  width: auto;
+  height: 2rem;
+  border:1px solid grey;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  color: grey;
+  padding: 6px;
+}
+.containerTabelaMes{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
 }
-
-/* define estilos para os containers de informações das divs */
-div[id^="dia"] {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-/* define estilos para os parágrafos de informações dos inputs */
-div[id^="dia"] p {
-  margin: 5px 0;
-  font-size: 16px;
-}
-
-
-.funcionariosTrab{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: auto;
-}
-
-.tituloTrab{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.pTrabalho{
-  padding: 10px;
-}
-
 .diaAdicionado{
-  font-size: 12px;
-  margin: 10px;
-  padding: 12px;
-  width: 200px;
+  width: auto;
+  font-size: 1rem;
+  margin: 0.8rem;
+  padding: 5px;
+  background-color: rgb(214, 216, 219);
+  border-radius: 8px;
+  border: 1px solid grey;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgb(137, 165, 224);
-  border: 1px solid black;
 }
-
-.pFinal{
-  font-weight: bold;
-
+.buttondownload{
+  margin: 1rem;
+  
 }
-
-.donwloadPdf{
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-bottom: 40px;
-}
-
-.donwloadPdf:hover{
-  background-color: #3e8e41;
-}
-
-/* Estilos para dispositivos com largura menor que 600px */
-@media (max-width: 600px) {
-  .containerSeletor {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .btnsSubmit {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 10px;
-  }
-  .funcionariosTrab{
-    display: flex;
-    flex-wrap: wrap;
-  }
+footer{
+  background-color: #00372E;
+  height: 10vh;
+  color: #FFFFFF;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+ 
 }
