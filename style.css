@@ -153,6 +153,9 @@ footer{
 }
 
 @media (max-width: 600px) {
+  .containerPai{
+    margin: 2rem;
+  }
   header{
     margin: 0;
     text-align: center;
@@ -161,6 +164,8 @@ footer{
    margin: 0;
   }
   .diaSelected, .funcaoSelected, .btnsSubmit, .buttondownload{
+    padding: 0;
+    width: auto;
     display: flex;
     flex-direction: column;
   }
