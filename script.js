@@ -12,22 +12,22 @@ document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
 document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
 
 // Função para criar uma div dinamicamente e adicionar o funcionario dentro dessa div, selecionando funcionario, dia e função e caso essa div ja exista ele sera incluido dentro da div existente
-function adicionar(){
+function adicionar() {
   const loja = document.getElementById('lojaSelected')
   const funcionario = document.getElementById('funcionarios').value
   const dia = document.getElementById('diaSelecionado').value
   const funcao = document.getElementById('funcao').value
-  if(funcionario == 'default' || dia == 'default' || funcao == 'default' || loja == 'default'){
+  if (funcionario == 'default' || dia == 'default' || funcao == 'default' || loja == 'default') {
     alert('Todas as caixas devem estar preenchidas para a criação das tabelas!')
     return
   }
 
-  if(funcionario == 'rose' && funcao !== 'gerente' ){
+  if (funcionario == 'rose' && funcao !== 'gerente') {
     alert(`${funcionario.toUpperCase()} só pode ser selecionado na função: "GERENTE"`)
     return
   }
 
-  if(funcionario !== 'rose' && funcao == 'gerente'){
+  if (funcionario !== 'rose' && funcao == 'gerente') {
     alert(`Apenas "ROSE" pode ser selecionada como "${funcao.toUpperCase()}"`)
     return
   }
@@ -62,26 +62,26 @@ function adicionar(){
   //     }
   //   }
   // }
-  
-  switch(funcionario){
+
+  switch (funcionario) {
     case 'breno':
-      if(funcao !== 'folga') diasTrabalhandoBreno ++
+      if (funcao !== 'folga') diasTrabalhandoBreno++
       document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
       break
     case 'eduardo':
-      if(funcao !== 'folga') diasTrabalhandoEduardo ++
+      if (funcao !== 'folga') diasTrabalhandoEduardo++
       document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
       break
     case 'larissa':
-      if(funcao !== 'folga') diasTrabalhandoLarissa ++
+      if (funcao !== 'folga') diasTrabalhandoLarissa++
       document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
       break
     case 'marcella':
-      if(funcao !== 'folga') diasTrabalhandoMarcella ++
+      if (funcao !== 'folga') diasTrabalhandoMarcella++
       document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
       break
     case 'paulo':
-      if(funcao !== 'folga') diasTrabalhandoPaulo ++
+      if (funcao !== 'folga') diasTrabalhandoPaulo++
       document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
       break
     default:
@@ -91,14 +91,14 @@ function adicionar(){
 
   const container = document.getElementById('containerTabelaMes')
   const divExistente = document.getElementById(dia)
-  if (divExistente !== null){
+  if (divExistente !== null) {
     const pFinal = document.createElement('p')
     pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}`
 
     divExistente.appendChild(pFinal)
-    pFinal.setAttribute('id', funcionario+dia)
+    pFinal.setAttribute('id', funcionario + dia)
     pFinal.classList.add('pFinal')
-  }else{
+  } else {
     const div = document.createElement('div')
     div.setAttribute('id', dia)
     div.classList.add('diaAdicionado')
@@ -112,19 +112,19 @@ function adicionar(){
     const checkFeriado = document.getElementById('checkFeriado');
     const paragrafoDia = document.createElement('p')
 
-    if(checkDomingo.checked && checkFeriado.checked){
+    if (checkDomingo.checked && checkFeriado.checked) {
       paragrafoDia.textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO/FERIADO"`
-    }else if(checkDomingo.checked){
+    } else if (checkDomingo.checked) {
       paragrafoDia.textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO"`
-    }else if(checkFeriado.checked){
+    } else if (checkFeriado.checked) {
       paragrafoDia.textContent = `DIA: ${dia.toUpperCase()} / "FERIADO"`
-    }else{
+    } else {
       paragrafoDia.textContent = `DIA: ${dia.toUpperCase()}`
     }
 
     div.appendChild(paragrafoDia)
     div.appendChild(pFinal)
-    pFinal.setAttribute('id', funcionario+dia)
+    pFinal.setAttribute('id', funcionario + dia)
   }
 }
 
@@ -134,9 +134,9 @@ function removerDia() {
   const card = document.getElementById(dia);
   const container = document.getElementById('containerTabelaMes');
   const funcao = document.getElementById('funcao').value;
-  
+
   //Parar a função caso on inputs necessarios nao teham sido preenchidos
-  if(dia == 'default'){
+  if (dia == 'default') {
     alert('A opção dia precisa estar preenchida e existir para ser removida.')
     return
   }
@@ -148,28 +148,28 @@ function removerDia() {
     const nome = funcionarios[i];
 
     // Verifica se o funcionário está presente no dia selecionado
-    if (funcao !== 'folga' && card.querySelector('#'+nome+dia) !== null) {
+    if (funcao !== 'folga' && card.querySelector('#' + nome + dia) !== null) {
 
       // Subtrai 1 do contador correspondente
       switch (nome) {
         case 'breno':
-          diasTrabalhandoBreno --;
+          diasTrabalhandoBreno--;
           document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
           break;
         case 'eduardo':
-          diasTrabalhandoEduardo --;
+          diasTrabalhandoEduardo--;
           document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
           break;
         case 'larissa':
-          diasTrabalhandoLarissa --;
+          diasTrabalhandoLarissa--;
           document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
           break;
         case 'marcella':
-          diasTrabalhandoMarcella --;
+          diasTrabalhandoMarcella--;
           document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
           break;
         case 'paulo':
-          diasTrabalhandoPaulo --;
+          diasTrabalhandoPaulo--;
           document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
           break;
         default:
@@ -177,8 +177,8 @@ function removerDia() {
       }
     }
   }
-  
-  if(card){
+
+  if (card) {
     container.removeChild(card)
   }
 }
@@ -187,36 +187,36 @@ function removerDia() {
 function removerFuncionario() {
   const funcionario = document.getElementById('funcionarios').value
   const dia = document.getElementById('diaSelecionado').value
-  if(dia == 'default' || funcionario == 'default'){
+  if (dia == 'default' || funcionario == 'default') {
     alert('As opções "Funcionario" e "Dia", precisam estar preenchidas e existir para que sejam removidas.')
   }
   const paragrafo = document.getElementById(funcionario + dia)
   const funcao = document.getElementById('funcao').value
   if (paragrafo) {
     paragrafo.remove();
-    switch(funcionario){
+    switch (funcionario) {
       case 'breno':
-      if(funcao !== 'folga') diasTrabalhandoBreno --
-      document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
-      break
-    case 'eduardo':
-      if(funcao !== 'folga') diasTrabalhandoEduardo --
-      document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-      break
-    case 'larissa':
-      if(funcao !== 'folga') diasTrabalhandoLarissa --
-      document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
-      break
-    case 'marcella':
-      if(funcao !== 'folga') diasTrabalhandoMarcella --
-      document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
-      break
-    case 'paulo':
-      if(funcao !== 'folga') diasTrabalhandoPaulo --
-      document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
-      break
-    default:
-      break
+        if (funcao !== 'folga') diasTrabalhandoBreno--
+        document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+        break
+      case 'eduardo':
+        if (funcao !== 'folga') diasTrabalhandoEduardo--
+        document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+        break
+      case 'larissa':
+        if (funcao !== 'folga') diasTrabalhandoLarissa--
+        document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+        break
+      case 'marcella':
+        if (funcao !== 'folga') diasTrabalhandoMarcella--
+        document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+        break
+      case 'paulo':
+        if (funcao !== 'folga') diasTrabalhandoPaulo--
+        document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
+        break
+      default:
+        break
     }
   }
 }
@@ -236,11 +236,11 @@ function copiarUltimaDiv() {
 
     const checkDomingo = document.getElementById('checkDomingo');
     const checkFeriado = document.getElementById('checkFeriado');
-    if(checkDomingo.checked && checkFeriado.checked){
+    if (checkDomingo.checked && checkFeriado.checked) {
       novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO/FERIADO"`;
-    }else if(checkDomingo.checked){
+    } else if (checkDomingo.checked) {
       novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO"`;
-    }else{
+    } else {
       novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()}`;
     }
 
@@ -265,30 +265,30 @@ function copiarUltimaDiv() {
     for (let i = 0; i < funcionarios.length; i++) {
       const nome = funcionarios[i];
       const cardAtual = document.getElementById(nome + dia);
-      
+
       // Verifica se o funcionário está presente no card clonado
       if (cardAtual !== null) {
 
         // Incrementa o contador de dias trabalhados do funcionário
         switch (nome) {
           case 'breno':
-            diasTrabalhandoBreno ++;
+            diasTrabalhandoBreno++;
             document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
             break;
           case 'eduardo':
-            diasTrabalhandoEduardo ++;
+            diasTrabalhandoEduardo++;
             document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
             break;
           case 'larissa':
-            diasTrabalhandoLarissa ++;
+            diasTrabalhandoLarissa++;
             document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
             break;
           case 'marcella':
-            diasTrabalhandoMarcella ++;
+            diasTrabalhandoMarcella++;
             document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
             break;
           case 'paulo':
-            diasTrabalhandoPaulo ++;
+            diasTrabalhandoPaulo++;
             document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
             break;
           default:
@@ -300,21 +300,22 @@ function copiarUltimaDiv() {
 }
 
 //Função para ao clicar no botao baixar um pdf com a escala completa 
-document.getElementById("download-pdf-btn").addEventListener("click", function() {
-  const loja = document.getElementById('lojaSelected').value
+function gerarPdf() {
   const doc = new jsPDF();
+  doc.setFillColor(11, 117, 7);
   const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA: ${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`;
-  const conteudo = document.getElementById("containerTabelaMes");
-  
+  // const conteudo = document.getElementById("containerTabelaMes");
+  const div1 = document.getElementById('1')
+
   // adiciona o título e configura a fonte
   doc.setFontSize(16);
-  doc.text(`ESCALA MENSAL LOJA ${loja}`, 105, 20, {align: "center"});
+  doc.text(`ESCALA MENSAL LOJA 48`, 105, 20, { align: "center" });
 
   doc.setFontSize(14);
-  doc.fromHTML(diasTrabalhando, 20, 40, {align: "center"});
-  
+  doc.fromHTML(diasTrabalhando, 20, 40, { align: "center" });
+
   // configura a fonte para o tamanho do conteúdo
   doc.setFontSize(12);
-  doc.fromHTML(conteudo, 20, 50, {align: "center"});
+  doc.fromHTML(div1, 20, 50, { align: "center" });
   doc.save("escala.pdf")
-});
+};
