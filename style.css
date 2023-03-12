@@ -9,11 +9,13 @@
 
 
 body {
- 
-  background-color: #FFFFFF;
+
 }
 
 header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
   width: 100%;
@@ -26,9 +28,13 @@ header img{
   max-width: 100%;
   margin-left: 4rem;
 }
+header h1{
+  align-items: center;
+  color: #004d3c;
+}
 
 .containerPai{
-  margin: 3rem  5rem 3rem 5rem;
+  margin: 30px 10px 30px 10px;
   width: auto;
   height: auto;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
@@ -40,19 +46,19 @@ header img{
   flex-direction: column;
   
 }
- .containerPai h1{
-  text-align: center;
-  color:#00372E;
-  
-}
+
 .containerSeletor{
+  padding-top: 10px;
   text-align: center;
 }
-.funcionarioSelected{
-  margin: auto;
-  width: auto;
-  text-align: center;
+
+.seletoresSite{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
 }
+
 select, 
 option, 
 button{
@@ -64,6 +70,9 @@ button{
   text-align: center;
   color: grey;
   
+}
+select:hover{
+  border: solid 2px black;
 }
 .diaSelected, .funcaoSelected, .btnsSubmit, .buttondownload{
    text-align: center;
@@ -84,7 +93,9 @@ button{
   background-color:#0a832a;
   
 }
-
+button:hover{
+  cursor: pointer;
+}
 .donwloadPdf, .btnAdicionar:hover{
   background-color:#4CAF50;
 }
@@ -149,6 +160,7 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 9rem;
  
 }
 

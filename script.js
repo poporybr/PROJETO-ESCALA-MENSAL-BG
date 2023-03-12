@@ -302,10 +302,11 @@ function copiarUltimaDiv() {
 //Função para ao clicar no botao baixar um pdf com a escala completa 
 function gerarPdf() {
   const doc = new jsPDF();
-  doc.setFillColor(11, 117, 7);
+
   const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA: ${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`;
-  // const conteudo = document.getElementById("containerTabelaMes");
-  const div1 = document.getElementById('1')
+
+  const conteudo = document.getElementById("containerTabelaMes");
+
 
   // adiciona o título e configura a fonte
   doc.setFontSize(16);
@@ -316,6 +317,6 @@ function gerarPdf() {
 
   // configura a fonte para o tamanho do conteúdo
   doc.setFontSize(12);
-  doc.fromHTML(div1, 20, 50, { align: "center" });
+  doc.fromHTML(conteudo, 20, 50, { align: "center" });
   doc.save("escala.pdf")
 };
