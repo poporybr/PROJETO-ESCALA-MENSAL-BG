@@ -113,11 +113,11 @@ function adicionar() {
     const paragrafoDia = document.createElement('p')
 
     if (checkDomingo.checked && checkFeriado.checked) {
-      paragrafoDia.textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO/FERIADO"`
+      paragrafoDia.textContent = `DIA: ${dia.toUpperCase()}  "DOMINGO & FERIADO"`
     } else if (checkDomingo.checked) {
-      paragrafoDia.textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO"`
+      paragrafoDia.textContent = `DIA: ${dia.toUpperCase()}  "DOMINGO"`
     } else if (checkFeriado.checked) {
-      paragrafoDia.textContent = `DIA: ${dia.toUpperCase()} / "FERIADO"`
+      paragrafoDia.textContent = `DIA: ${dia.toUpperCase()}  "FERIADO"`
     } else {
       paragrafoDia.textContent = `DIA: ${dia.toUpperCase()}`
     }

@@ -39,8 +39,9 @@
     font-size: 16px; 
     padding: 10px; 
     border-radius: 5px; 
-    border: 1px solid #ccc; 
-    background-color: rgb(238, 238, 238);
+    border: 1px solid white; 
+    background-color: #00372E;
+    color: white;
   }
 
   select:hover{
@@ -54,11 +55,10 @@
     justify-content: center;
     gap: 20px;
     background-color: #00372E;
-    margin: 15px 0 15px 0;
-    padding: 13px 5px 1px 2px;
-    width: 100rem;
+    margin: 10px 10px;
+    padding-top: 20px;
+    width: 100%;
     color: white;
-    border-radius: 10px;
     box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.3);
   }
   
@@ -130,6 +130,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
   }
   .titleDiasTrabalhados{
     color: #00372E;
@@ -149,4 +150,48 @@
     background-color: #00372E;
     color: white;
   }
-  
+
+/* Container Dias adicionados */
+  .containerTabelaMes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .diaAdicionado{
+    gap: 4px;
+    background-color: #00372E;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 10px;
+    border: 3px solid black;
+    margin: 10px;
+    font-size: 12px;
+  }
+
+/* Botão donwload PDF */
+  .btnPDF{
+    background-color: rgb(19, 179, 19);
+    margin: 20px 20px;
+  }
+
+  .btnPDF:hover{
+    background-color:  rgb(8, 124, 8);
+  }
+
+/* Footer */
+  footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    color: white;
+    width: 100%;
+    background-color: #00372E;
+  }
