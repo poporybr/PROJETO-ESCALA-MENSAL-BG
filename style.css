@@ -188,10 +188,69 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: relative;
     bottom: 0;
     height: 100px;
     color: white;
     width: 100%;
     background-color: #00372E;
   }
+
+/* Ajustes para telas menores que 768px */
+@media only screen and (max-width: 768px) {
+  header {
+    height: 5rem;
+  }
+
+  .containerSeletores {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+
+  select {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .diasExtras {
+    padding: 10px ;
+    height: 35px;
+  }
+
+  .btnsSubmit {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .btnAdicionar,
+  .btnRemoverDia,
+  .btnRemoverFuncionario,
+  .btnCopiar,
+  .btnPDF {
+    padding: 8px 10px;
+  }
+
+  .funcionariosTrab {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .pTrabalho {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  .containerTabelaMes {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .diaAdicionado {
+    font-size: 14px;
+    padding: 8px;
+    margin: 10px 0;
+  }
+}
