@@ -214,6 +214,7 @@
   select {
     font-size: 14px;
     padding: 8px;
+    text-align: center;
   }
 
   .diasExtras {
