@@ -63,41 +63,46 @@ function adicionar() {
   //   }
   // }
 
-  switch (funcionario) {
-    case 'breno':
-      if (funcao !== 'folga') diasTrabalhandoBreno++
-      document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
-      break
-    case 'eduardo':
-      if (funcao !== 'folga') diasTrabalhandoEduardo++
-      document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-      break
-    case 'larissa':
-      if (funcao !== 'folga') diasTrabalhandoLarissa++
-      document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
-      break
-    case 'marcella':
-      if (funcao !== 'folga') diasTrabalhandoMarcella++
-      document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
-      break
-    case 'paulo':
-      if (funcao !== 'folga') diasTrabalhandoPaulo++
-      document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
-      break
-    default:
-      break
-  }
-
-
   const container = document.getElementById('containerTabelaMes')
   const divExistente = document.getElementById(dia)
   if (divExistente !== null) {
+    const elementosFuncionario = divExistente.querySelectorAll(`[id^=${funcionario}]`);
+    if (elementosFuncionario.length > 0) {
+      alert(`O funcionário ${funcionario.toUpperCase()} já está presente neste dia!`);
+      return;
+    }
     const pFinal = document.createElement('p')
     pFinal.textContent = `${funcionario.toUpperCase()} / ${funcao.toUpperCase()}`
 
     divExistente.appendChild(pFinal)
     pFinal.setAttribute('id', funcionario + dia)
     pFinal.classList.add('pFinal')
+
+    switch (funcionario) {
+      case 'breno':
+        if (funcao !== 'folga') diasTrabalhandoBreno++
+        document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+        break
+      case 'eduardo':
+        if (funcao !== 'folga') diasTrabalhandoEduardo++
+        document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+        break
+      case 'larissa':
+        if (funcao !== 'folga') diasTrabalhandoLarissa++
+        document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+        break
+      case 'marcella':
+        if (funcao !== 'folga') diasTrabalhandoMarcella++
+        document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+        break
+      case 'paulo':
+        if (funcao !== 'folga') diasTrabalhandoPaulo++
+        document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
+        break
+      default:
+        break
+    }
+
   } else {
     const div = document.createElement('div')
     div.setAttribute('id', dia)
@@ -125,6 +130,31 @@ function adicionar() {
     div.appendChild(paragrafoDia)
     div.appendChild(pFinal)
     pFinal.setAttribute('id', funcionario + dia)
+
+    switch (funcionario) {
+      case 'breno':
+        if (funcao !== 'folga') diasTrabalhandoBreno++
+        document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+        break
+      case 'eduardo':
+        if (funcao !== 'folga') diasTrabalhandoEduardo++
+        document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+        break
+      case 'larissa':
+        if (funcao !== 'folga') diasTrabalhandoLarissa++
+        document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+        break
+      case 'marcella':
+        if (funcao !== 'folga') diasTrabalhandoMarcella++
+        document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+        break
+      case 'paulo':
+        if (funcao !== 'folga') diasTrabalhandoPaulo++
+        document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
+        break
+      default:
+        break
+    }
   }
 }
 
