@@ -4,6 +4,12 @@ var diasTrabalhandoLarissa = 0
 var diasTrabalhandoMarcella = 0
 var diasTrabalhandoPaulo = 0
 
+var trabBreno = 0;
+var trabEduardo = 0;
+var trabLarissa = 0;
+var trabMarcella = 0;
+var trabPaulo = 0;
+
 //Print em tela dos dias trabalhados
 document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
 document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
@@ -32,36 +38,58 @@ function adicionar() {
     return
   }
 
+
   // Verifica se o funcionário trabalhou nos últimos 6 dias
   // Se sim, impossibilita ele de trabalhar novamente e alerta um erro
-  // const ultimosDias = document.querySelectorAll('.diaAdicionado')
-  // let contadorDiasFunc = 0
 
-  // // Seleciona apenas os últimos 6 dias
-  // const ultimosSeisDias = Array.prototype.slice.call(ultimosDias, -6)
-  // if (ultimosSeisDias.length > 0) {
-  //   const ultimaDiv = ultimosDias[ultimosDias.length - 1]
-  //   const funcao = ultimaDiv.querySelector('.pFinal').value
-  //   console.log(funcao.value)
-  //   if (funcao === 'folga') {
-  //     contadorDiasFunc = 0
-  //   }
-  // }  
+  switch(funcionario){
+    case 'breno':
+      if(trabBreno == 6 && funcao !== 'folga'){
+        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+      }else if(funcao === "folga"){
+        trabBreno = 0;
+      }else{
+        trabBreno++
+      }
+      break;
+    case 'eduardo':
+      if(trabEduardo == 6 && funcao !== 'folga'){
+        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+      }else if(funcao === "folga"){
+        trabEduardo = 0;
+      }else{
+        trabEduardo++
+      }
+      break;
+    case 'larissa':
+      if(trabLarissa == 6 && funcao !== 'folga'){
+        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+      }else if(funcao === "folga"){
+        trabLarissa = 0;
+      }else{
+        trabLarissa++
+      }
+      break;
+    case 'marcella':
+      if(trabMarcella == 6 && funcao !== 'folga'){
+        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+      }else if(funcao === "folga"){
+        trabMarcella = 0;
+      }else{
+        trabMarcella++
+      }
+      break;
+    case 'paulo':
+      if(trabPaulo == 6 && funcao !== 'folga'){
+        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+      }else if(funcao === "folga"){
+        trabPaulo = 0;
+      }else{
+        trabPaulo++
+      }
+      break;
+  }
 
-  // for (let i = 0; i < ultimosSeisDias.length; i++) {
-  //   const divDia = ultimosSeisDias[i]
-  //   const funcionarioS = divDia.querySelector(`#${funcionario+divDia.id}`)
-  //   if (funcionarioS !== null) {
-  //     contadorDiasFunc++
-  //     if (contadorDiasFunc === 6) {
-  //       const funcao = document.getElementById('funcao').value
-  //       if (funcao !== 'folga') {
-  //         alert(`O funcionário ${funcionario.toUpperCase()} trabalhou nos últimos 6 dias, então só é possível atribuir a função 'FOLGA'.`)
-  //         return
-  //       }
-  //     }
-  //   }
-  // }
 
   const container = document.getElementById('containerTabelaMes')
   const divExistente = document.getElementById(dia)
