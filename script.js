@@ -213,22 +213,27 @@ function removerDia() {
         case 'breno':
           diasTrabalhandoBreno--;
           document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+          trabBreno--
           break;
         case 'eduardo':
           diasTrabalhandoEduardo--;
           document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+          trabEduardo--
           break;
         case 'larissa':
           diasTrabalhandoLarissa--;
           document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+          trabLarissa--
           break;
         case 'marcella':
           diasTrabalhandoMarcella--;
           document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+          trabMarcella--
           break;
         case 'paulo':
           diasTrabalhandoPaulo--;
           document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
+          trabPaulo--
           break;
         default:
           break;
@@ -256,22 +261,27 @@ function removerFuncionario() {
       case 'breno':
         if (funcao !== 'folga') diasTrabalhandoBreno--
         document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+        trabBreno--
         break
       case 'eduardo':
         if (funcao !== 'folga') diasTrabalhandoEduardo--
         document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+        trabEduardo--
         break
       case 'larissa':
         if (funcao !== 'folga') diasTrabalhandoLarissa--
         document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+        trabLarissa--
         break
       case 'marcella':
         if (funcao !== 'folga') diasTrabalhandoMarcella--
         document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+        trabMarcella--
         break
       case 'paulo':
         if (funcao !== 'folga') diasTrabalhandoPaulo--
         document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
+        trabPaulo--
         break
       default:
         break
@@ -314,9 +324,8 @@ function copiarUltimaDiv() {
       divExistente.parentNode.replaceChild(novoDia, divExistente);
     } else {
       container.appendChild(novoDia);
-    }
 
-    // Array com os nomes dos funcionários
+      // Array com os nomes dos funcionários
     const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
 
     // Loop para iterar sobre todos os funcionários
@@ -353,6 +362,7 @@ function copiarUltimaDiv() {
             break;
         }
       }
+    }
     }
   }
 }
