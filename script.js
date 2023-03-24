@@ -49,7 +49,7 @@ function adicionar() {
   switch(funcionario){
     case 'breno':
       if(trabBreno == 6 && funcao !== 'folga'){
-        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+        return alert(`O Funcionario "${funcionario.toUpperCase()}" ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
       }else if(funcao === "folga"){
         trabBreno = 0;
       }else{
@@ -58,7 +58,7 @@ function adicionar() {
       break;
     case 'eduardo':
       if(trabEduardo == 6 && funcao !== 'folga'){
-        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+        return alert(`O Funcionario "${funcionario.toUpperCase()}" ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
       }else if(funcao === "folga"){
         trabEduardo = 0;
       }else{
@@ -67,7 +67,7 @@ function adicionar() {
       break;
     case 'larissa':
       if(trabLarissa == 6 && funcao !== 'folga'){
-        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+        return alert(`O Funcionario "${funcionario.toUpperCase()}" ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
       }else if(funcao === "folga"){
         trabLarissa = 0;
       }else{
@@ -76,7 +76,7 @@ function adicionar() {
       break;
     case 'marcella':
       if(trabMarcella == 6 && funcao !== 'folga'){
-        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+        return alert(`O Funcionario "${funcionario.toUpperCase()}" ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
       }else if(funcao === "folga"){
         trabMarcella = 0;
       }else{
@@ -85,7 +85,7 @@ function adicionar() {
       break;
     case 'paulo':
       if(trabPaulo == 6 && funcao !== 'folga'){
-        return alert(`O Funcionario ${funcionario} ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
+        return alert(`O Funcionario "${funcionario.toUpperCase()}" ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
       }else if(funcao === "folga"){
         trabPaulo = 0;
       }else{
