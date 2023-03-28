@@ -383,6 +383,19 @@ function copiarUltimaDiv() {
   }
 }
 
+const element = document.getElementById('elementoC');
+element.addEventListener('mouseover', exibirInfo);
+element.addEventListener('mouseout', esconderInfo);
+
+function exibirInfo() {
+  const infoTool = document.getElementById('infoTool');
+  infoTool.style.display = 'block';
+}
+function esconderInfo() {
+  const infoTool = document.getElementById('infoTool');
+  infoTool.style.display = 'none';
+}
+
 //Função para ao clicar no botao baixar um pdf com a escala completa 
 function gerarPdf() {
 

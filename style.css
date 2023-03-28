@@ -35,6 +35,43 @@
     padding-bottom: 9px;
   }
 
+  .infoTip{
+    border: solid 1px white;
+    width: 14px;
+    height: 14px;
+    background-color: #00372E;
+    color: white;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .textInfo{
+    width: 300px;
+    height: 150px;
+  }
+  .textInfo {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: #00372ee3;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .TextInfo::before {
+    content: "";
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #ccc transparent transparent;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -20px;
+  }
+
 /* Estiliza os seletores */
   select { 
     font-size: 16px; 
