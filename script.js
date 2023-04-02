@@ -229,22 +229,27 @@ function removerDia() {
         case 'breno':
           diasTrabalhandoBreno--;
           document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+          trabBreno--
           break;
         case 'eduardo':
           diasTrabalhandoEduardo--;
           document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+          trabEduardo--
           break;
         case 'larissa':
           diasTrabalhandoLarissa--;
           document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+          trabLarissa--
           break;
         case 'marcella':
           diasTrabalhandoMarcella--;
           document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+          trabMarcella--
           break;
         case 'paulo':
           diasTrabalhandoPaulo--;
           document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
+          trabPaulo--
           break;
         default:
           break;
@@ -281,22 +286,27 @@ function removerFuncionario() {
       case 'breno':
         if (funcao !== 'folga') diasTrabalhandoBreno--
         document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+        trabBreno--
         break
       case 'eduardo':
         if (funcao !== 'folga') diasTrabalhandoEduardo--
         document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+        trabEduardo--
         break
       case 'larissa':
         if (funcao !== 'folga') diasTrabalhandoLarissa--
         document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+        trabLarissa--
         break
       case 'marcella':
         if (funcao !== 'folga') diasTrabalhandoMarcella--
         document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+        trabMarcella--
         break
       case 'paulo':
         if (funcao !== 'folga') diasTrabalhandoPaulo--
         document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
+        trabPaulo--
         break
       default:
         break
@@ -306,6 +316,7 @@ function removerFuncionario() {
 
 //Função para copiar a ultima div criada e criar uma div identica mudando apenas o dia para o dia selecionado pelo usuario
 function copiarUltimaDiv() {
+
   // seleciona o utimo dia
   const ultimoDia = document.querySelector('#containerTabelaMes .diaAdicionado:last-child');
 
@@ -340,10 +351,6 @@ function copiarUltimaDiv() {
       p.setAttribute('id', idOriginal.replace(/\d+$/, dia));
     });
 
-    // Append novoDia no container
-    const container = document.getElementById('containerTabelaMes');
-    container.appendChild(novoDia);
-
     // Array com os nomes dos funcionários
     const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
 
@@ -358,27 +365,58 @@ function copiarUltimaDiv() {
           case 'breno':
             diasTrabalhandoBreno++;
             document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+            if(trabBreno == 6){
+              return alert('Você não pode copiar esse dia pois o funcionario "BRENO" possui 6 dias seguidos de trabalho!')
+            }else{
+              trabBreno++
+            }
             break;
           case 'eduardo':
             diasTrabalhandoEduardo++;
             document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+            if(trabEduardo == 6){
+              return alert('Você não pode copiar esse dia pois o funcionario "EDUARDO" possui 6 dias seguidos de trabalho!')
+            }else{
+              trabEduardo++
+            }
             break;
           case 'larissa':
             diasTrabalhandoLarissa++;
             document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+            if(trabLarissa == 6){
+              return alert('Você não pode copiar esse dia pois o funcionario "LARISSA" possui 6 dias seguidos de trabalho!')
+            }else{
+              trabLarissa++
+            }
             break;
           case 'marcella':
             diasTrabalhandoMarcella++;
             document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+            if(trabMarcella == 6){
+              return alert('Você não pode copiar esse dia pois o funcionario "MARCELLA" possui 6 dias seguidos de trabalho!')
+            }else{
+              trabMarcella++
+            }
             break;
           case 'paulo':
             diasTrabalhandoPaulo++;
             document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
+            if(trabPaulo == 6){
+              return alert('Você não pode copiar esse dia pois o funcionario "PAULO" possui 6 dias seguidos de trabalho!')
+            }else{
+              trabPaulo++
+            }
             break;
           default:
             break;
         }
       }
+    }
+    if(trabBreno == 6 || trabEduardo == 6 || trabLarissa ==6 || trabMarcella == 6 || trabPaulo == 6){
+      return alert('Adicione um dia ao inves de copiar para não ocorrer erros')
+    }else{
+      const container = document.getElementById('containerTabelaMes');
+      container.appendChild(novoDia);
     }
   }
 }
