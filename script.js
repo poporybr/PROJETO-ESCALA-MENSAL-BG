@@ -1,21 +1,18 @@
 // Varivel para somar dias trabalhados no mês
-var diasTrabalhandoBreno = 0
-var diasTrabalhandoEduardo = 0
-var diasTrabalhandoLarissa = 0
-var diasTrabalhandoMarcella = 0
+var diasTrabalhandoBreno = 0;
+var diasTrabalhandoMarcella = 0;
 var diasTrabalhandoPaulo = 0
+var diasTrabalhandoMaria = 0;
 
 // Variavel para controle de escala 6x1
 var trabBreno = 0;
-var trabEduardo = 0;
-var trabLarissa = 0;
 var trabMarcella = 0;
 var trabPaulo = 0;
+var trabMaria = 0;
 
 //Print em tela dos dias trabalhados
 document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
-document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+document.getElementById('trabMaria').innerHTML = diasTrabalhandoMaria;
 document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
 document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo
 
@@ -56,22 +53,13 @@ function adicionar() {
         trabBreno++
       }
       break;
-    case 'eduardo':
-      if(trabEduardo == 6 && funcao !== 'folga'){
+    case 'maria':
+      if(trabMaria == 6 && funcao !== 'folga'){
         return alert(`O Funcionario "${funcionario.toUpperCase()}" ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
       }else if(funcao === "folga"){
-        trabEduardo = 0;
+        trabMaria = 0;
       }else{
-        trabEduardo++
-      }
-      break;
-    case 'larissa':
-      if(trabLarissa == 6 && funcao !== 'folga'){
-        return alert(`O Funcionario "${funcionario.toUpperCase()}" ja trabalhou 6 dias e precisa que a função seja "FOLGA"`)
-      }else if(funcao === "folga"){
-        trabLarissa = 0;
-      }else{
-        trabLarissa++
+        trabMaria++
       }
       break;
     case 'marcella':
@@ -121,13 +109,9 @@ function adicionar() {
         if (funcao !== 'folga') diasTrabalhandoBreno++
         document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
         break
-      case 'eduardo':
-        if (funcao !== 'folga') diasTrabalhandoEduardo++
-        document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-        break
-      case 'larissa':
-        if (funcao !== 'folga') diasTrabalhandoLarissa++
-        document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+      case 'maria':
+        if (funcao !== 'folga') diasTrabalhandoMaria++
+        document.getElementById('trabMaria').innerHTML = diasTrabalhandoMaria;
         break
       case 'marcella':
         if (funcao !== 'folga') diasTrabalhandoMarcella++
@@ -179,13 +163,9 @@ function adicionar() {
         if (funcao !== 'folga') diasTrabalhandoBreno++
         document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
         break
-      case 'eduardo':
-        if (funcao !== 'folga') diasTrabalhandoEduardo++
-        document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-        break
-      case 'larissa':
-        if (funcao !== 'folga') diasTrabalhandoLarissa++
-        document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+      case 'maria':
+        if (funcao !== 'folga') diasTrabalhandoMaria++
+        document.getElementById('trabMaria').innerHTML = diasTrabalhandoMaria;
         break
       case 'marcella':
         if (funcao !== 'folga') diasTrabalhandoMarcella++
@@ -215,7 +195,7 @@ function removerDia() {
   }
   
   // Array com os nomes dos funcionários
-  const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
+  const funcionarios = ['breno', 'maria', 'marcella', 'paulo'];
 
   // Loop para iterar sobre todos os funcionários
   for (let i = 0; i < funcionarios.length; i++) {
@@ -231,15 +211,10 @@ function removerDia() {
           document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
           trabBreno--
           break;
-        case 'eduardo':
-          diasTrabalhandoEduardo--;
-          document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-          trabEduardo--
-          break;
-        case 'larissa':
-          diasTrabalhandoLarissa--;
-          document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
-          trabLarissa--
+        case 'maria':
+          diasTrabalhandoMaria--;
+          document.getElementById('trabMaria').innerHTML = diasTrabalhandoMaria;
+          trabMaria--
           break;
         case 'marcella':
           diasTrabalhandoMarcella--;
@@ -288,15 +263,10 @@ function removerFuncionario() {
         document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
         trabBreno--
         break
-      case 'eduardo':
-        if (funcao !== 'folga') diasTrabalhandoEduardo--
-        document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-        trabEduardo--
-        break
-      case 'larissa':
-        if (funcao !== 'folga') diasTrabalhandoLarissa--
-        document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
-        trabLarissa--
+      case 'maria':
+        if (funcao !== 'folga') diasTrabalhandoMaria--
+        document.getElementById('trabMaria').innerHTML = diasTrabalhandoMaria;
+        trabMaria--
         break
       case 'marcella':
         if (funcao !== 'folga') diasTrabalhandoMarcella--
@@ -315,111 +285,111 @@ function removerFuncionario() {
 }
 
 //Função para copiar a ultima div criada e criar uma div identica mudando apenas o dia para o dia selecionado pelo usuario
-function copiarUltimaDiv() {
+// function copiarUltimaDiv() {
 
-  // seleciona o utimo dia
-  const ultimoDia = document.querySelector('#containerTabelaMes .diaAdicionado:last-child');
+//   // seleciona o utimo dia
+//   const ultimoDia = document.querySelector('#containerTabelaMes .diaAdicionado:last-child');
 
-  if (ultimoDia !== null) {
-    const dia = document.getElementById('diaSelecionado').value;
+//   if (ultimoDia !== null) {
+//     const dia = document.getElementById('diaSelecionado').value;
 
-    // Caso o dia selecionado ja tenha sido criado retorne erro
-    if (document.getElementById(dia) !== null) {
-      alert(`O dia ${dia} já foi adicionado. Por favor, selecione um dia diferente.`);
-      return;
-    }
+//     // Caso o dia selecionado ja tenha sido criado retorne erro
+//     if (document.getElementById(dia) !== null) {
+//       alert(`O dia ${dia} já foi adicionado. Por favor, selecione um dia diferente.`);
+//       return;
+//     }
 
-    // seta id para o novoDia que sera criado
-    const novoDia = ultimoDia.cloneNode(true);
-    novoDia.setAttribute('id', dia);
+//     // seta id para o novoDia que sera criado
+//     const novoDia = ultimoDia.cloneNode(true);
+//     novoDia.setAttribute('id', dia);
 
-    // Checar caso domingo e feriado estejam selecionados
-    const checkDomingo = document.getElementById('checkDomingo');
-    const checkFeriado = document.getElementById('checkFeriado');
-    if (checkDomingo.checked && checkFeriado.checked) {
-      novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO/FERIADO"`;
-    } else if (checkDomingo.checked) {
-      novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO"`;
-    } else {
-      novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()}`;
-    }
+//     // Checar caso domingo e feriado estejam selecionados
+//     const checkDomingo = document.getElementById('checkDomingo');
+//     const checkFeriado = document.getElementById('checkFeriado');
+//     if (checkDomingo.checked && checkFeriado.checked) {
+//       novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO/FERIADO"`;
+//     } else if (checkDomingo.checked) {
+//       novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()} / "DOMINGO"`;
+//     } else {
+//       novoDia.querySelector('p:first-child').textContent = `DIA: ${dia.toUpperCase()}`;
+//     }
 
-    // Seleciona todos os paragrafos do dia copiado e itera sobre cada paragrafo mudando o id para o dia selecionado pelo usuario
-    const paragrafos = novoDia.querySelectorAll('.pFinal');
-    paragrafos.forEach((p) => {
-      const idOriginal = p.getAttribute('id');
-      p.setAttribute('id', idOriginal.replace(/\d+$/, dia));
-    });
+//     // Seleciona todos os paragrafos do dia copiado e itera sobre cada paragrafo mudando o id para o dia selecionado pelo usuario
+//     const paragrafos = novoDia.querySelectorAll('.pFinal');
+//     paragrafos.forEach((p) => {
+//       const idOriginal = p.getAttribute('id');
+//       p.setAttribute('id', idOriginal.replace(/\d+$/, dia));
+//     });
 
-    // Array com os nomes dos funcionários
-    const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
+//     // Array com os nomes dos funcionários
+//     const funcionarios = ['breno', 'eduardo', 'larissa', 'marcella', 'paulo'];
 
-    // Loop para iterar sobre todos os funcionários
-    for (let i = 0; i < funcionarios.length; i++) {
-      const nome = funcionarios[i];
-      const cardAtual = document.getElementById(nome + dia);
+//     // Loop para iterar sobre todos os funcionários
+//     for (let i = 0; i < funcionarios.length; i++) {
+//       const nome = funcionarios[i];
+//       const cardAtual = document.getElementById(nome + dia);
 
-      if (cardAtual) {
-        // Switch para verificar o funcionario adicionado e adicionar um na variavel de diasTrabalhado na linha 1/6 
-        switch (nome) {
-          case 'breno':
-            diasTrabalhandoBreno++;
-            document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
-            if(trabBreno == 6){
-              return alert('Você não pode copiar esse dia pois o funcionario "BRENO" possui 6 dias seguidos de trabalho!')
-            }else{
-              trabBreno++
-            }
-            break;
-          case 'eduardo':
-            diasTrabalhandoEduardo++;
-            document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
-            if(trabEduardo == 6){
-              return alert('Você não pode copiar esse dia pois o funcionario "EDUARDO" possui 6 dias seguidos de trabalho!')
-            }else{
-              trabEduardo++
-            }
-            break;
-          case 'larissa':
-            diasTrabalhandoLarissa++;
-            document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
-            if(trabLarissa == 6){
-              return alert('Você não pode copiar esse dia pois o funcionario "LARISSA" possui 6 dias seguidos de trabalho!')
-            }else{
-              trabLarissa++
-            }
-            break;
-          case 'marcella':
-            diasTrabalhandoMarcella++;
-            document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
-            if(trabMarcella == 6){
-              return alert('Você não pode copiar esse dia pois o funcionario "MARCELLA" possui 6 dias seguidos de trabalho!')
-            }else{
-              trabMarcella++
-            }
-            break;
-          case 'paulo':
-            diasTrabalhandoPaulo++;
-            document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
-            if(trabPaulo == 6){
-              return alert('Você não pode copiar esse dia pois o funcionario "PAULO" possui 6 dias seguidos de trabalho!')
-            }else{
-              trabPaulo++
-            }
-            break;
-          default:
-            break;
-        }
-      }
-    }
-    if(trabBreno == 6 || trabEduardo == 6 || trabLarissa ==6 || trabMarcella == 6 || trabPaulo == 6){
-      return alert('Adicione um dia ao inves de copiar para não ocorrer erros')
-    }else{
-      const container = document.getElementById('containerTabelaMes');
-      container.appendChild(novoDia);
-    }
-  }
-}
+//       if (cardAtual) {
+//         // Switch para verificar o funcionario adicionado e adicionar um na variavel de diasTrabalhado na linha 1/6 
+//         switch (nome) {
+//           case 'breno':
+//             diasTrabalhandoBreno++;
+//             document.getElementById('trabBreno').innerHTML = diasTrabalhandoBreno;
+//             if(trabBreno == 6){
+//               return alert('Você não pode copiar esse dia pois o funcionario "BRENO" possui 6 dias seguidos de trabalho!')
+//             }else{
+//               trabBreno++
+//             }
+//             break;
+//           case 'eduardo':
+//             diasTrabalhandoEduardo++;
+//             document.getElementById('trabEduardo').innerHTML = diasTrabalhandoEduardo;
+//             if(trabEduardo == 6){
+//               return alert('Você não pode copiar esse dia pois o funcionario "EDUARDO" possui 6 dias seguidos de trabalho!')
+//             }else{
+//               trabEduardo++
+//             }
+//             break;
+//           case 'larissa':
+//             diasTrabalhandoLarissa++;
+//             document.getElementById('trabLarissa').innerHTML = diasTrabalhandoLarissa;
+//             if(trabLarissa == 6){
+//               return alert('Você não pode copiar esse dia pois o funcionario "LARISSA" possui 6 dias seguidos de trabalho!')
+//             }else{
+//               trabLarissa++
+//             }
+//             break;
+//           case 'marcella':
+//             diasTrabalhandoMarcella++;
+//             document.getElementById('trabMarcella').innerHTML = diasTrabalhandoMarcella;
+//             if(trabMarcella == 6){
+//               return alert('Você não pode copiar esse dia pois o funcionario "MARCELLA" possui 6 dias seguidos de trabalho!')
+//             }else{
+//               trabMarcella++
+//             }
+//             break;
+//           case 'paulo':
+//             diasTrabalhandoPaulo++;
+//             document.getElementById('trabPaulo').innerHTML = diasTrabalhandoPaulo;
+//             if(trabPaulo == 6){
+//               return alert('Você não pode copiar esse dia pois o funcionario "PAULO" possui 6 dias seguidos de trabalho!')
+//             }else{
+//               trabPaulo++
+//             }
+//             break;
+//           default:
+//             break;
+//         }
+//       }
+//     }
+//     if(trabBreno == 6 || trabEduardo == 6 || trabLarissa ==6 || trabMarcella == 6 || trabPaulo == 6){
+//       return alert('Adicione um dia ao inves de copiar para não ocorrer erros')
+//     }else{
+//       const container = document.getElementById('containerTabelaMes');
+//       container.appendChild(novoDia);
+//     }
+//   }
+// }
 
 const element = document.getElementById('elementoC');
 element.addEventListener('mouseover', exibirInfo);
@@ -441,7 +411,7 @@ function gerarPdf() {
   const doc = new jsPDF();
 
   // Adiciona os dias trabalhados no PDF
-  const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, EDUARDO: ${diasTrabalhandoEduardo}, LARISSA: ${diasTrabalhandoLarissa}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`;
+  const diasTrabalhando = `BREN0: ${diasTrabalhandoBreno}, MARIA: ${diasTrabalhandoMaria}, MARCELA: ${diasTrabalhandoMarcella}, PAULO: ${diasTrabalhandoPaulo}`;
 
   // Seleciona o conteudo a ser exibido no PDF
   const conteudo = document.getElementById("containerTabelaMes");
